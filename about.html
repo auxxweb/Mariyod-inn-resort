@@ -159,18 +159,129 @@
         </div>
     </section>
     <!-- About Us Area End -->
-    <section class="video-section">
+    <!-- <section class="video-section">
         <h2>Watch Our Highlights</h2>
         <div class="video-container">
             <video controls>
                 <source src="./img/videos/1.mov" type="video/mp4">
+                <source src="./img/videos/2.mov" type="video/mp4">
+                <source src="./img/videos/3.mov" type="video/mp4">
+                <source src="./img/videos/4.mov" type="video/mp4">
+                <source src="./img/videos/5.mov" type="video/mp4">
+                <source src="./img/videos/6.mov" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             
         </div>
         
         <p>Experience the best moments of our events and activities. Enjoy this quick overview!</p>
+    </section> -->
+    <section class="video-section">
+        <h2>Watch Our Highlights</h2>
+        <p>Experience the best moments of our events and activities. Enjoy this quick overview!</p>
+        <div class="video-container">
+            <div class="video-item">
+                <video controls>
+                    <source src="./img/videos/1.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="./img/videos/2.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="./img/videos/6.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="./img/videos/4.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="./img/videos/5.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </section>
+<style>
+  .video-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+}
+
+.video-section h2 {
+    font-size: 2.5em; /* Increased font size for title */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.video-section p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for the first row */
+    gap: 20px; /* Increased space between items */
+    padding: 10px;
+}
+
+.video-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 400px; /* Increased height */
+}
+
+.video-item:hover {
+    transform: scale(1.05);
+}
+
+.video-item video {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Ensures the video fills the container while maintaining aspect ratio */
+    border: none;
+}
+
+/* Align last two videos to center in second row */
+.video-container:nth-child(1) {
+    grid-template-columns: repeat(3, 1fr); /* Three items in the first row */
+}
+
+.video-container:nth-child(2) {
+    grid-template-columns: 1fr 1fr; /* Two columns in the second row */
+    justify-items: center; /* Center items in the second row */
+}
+
+/* Adjust for small screens */
+@media (max-width: 768px) {
+    .video-container {
+        grid-template-columns: 1fr; /* Stack videos on small screens */
+    }
+    
+    .video-item {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+
+</style>    
     <style>
         .video-section {
     text-align: center;
@@ -184,7 +295,7 @@
 }
 
 .video-container {
-    max-width: 300px; /* Maximum width for the video */
+    max-width: 800px; /* Maximum width for the video */
     margin: 0 auto; /* Center the video */
 }
 
