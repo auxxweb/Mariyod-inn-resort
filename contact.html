@@ -217,7 +217,7 @@
                             <div class="col-12">
                                 <div class="form-floating" style="margin-top: 10px; ">
                                     <!-- <label for="subject">Phone Number</label> -->
-                                    <input name="phoneNumber" type="number" class="form-control" id="phoneNumber"
+                                    <input name="phone" type="number" class="form-control" id="phone"
                                         placeholder="Phone Number" required>
                                 </div>
                             </div>
@@ -474,7 +474,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
           })
         })
       </script>
-      <script>
+      <!-- <script>
         $(document).ready(function () {
             $('#contactform').submit((e) => {
                 e.preventDefault()
@@ -496,7 +496,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                 $.ajax({
                     url:
-                        'https://script.google.com/macros/s/AKfycbyH6foigFQ6qbqTUmIFdKD7UqxGi5pgH8EmNKP2-ZwYHhmf_Qq9hfnJ1JyEBcUvRuzl/exec',
+                        'https://script.google.com/macros/s/AKfycbywcRskuYASG-nY_3xA1SxhTviSFKKvdI918oLLwKheqcZgGJPudCe9lAnQORwPShHSNg/exec',
                     data: $('#contactform').serialize(),
                     method: 'post',
                     success: function (response) {
@@ -518,7 +518,44 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 });
             });
         });
-    </script>
+    </script> -->
+    <script>
+		$(document).ready(function () {
+    $('#contactform').submit(function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Show loading indicator and hide the send button
+        const loading = document.getElementById('loading');
+        const btn = document.getElementById('s-btn');
+        const successMessage = document.getElementById('successMessage');
+        
+        loading.style.display = 'block';
+        btn.style.display = 'none';
+
+        // Send form data via AJAX
+        $.ajax({
+            url: 'https://script.google.com/macros/s/AKfycbywcRskuYASG-nY_3xA1SxhTviSFKKvdI918oLLwKheqcZgGJPudCe9lAnQORwPShHSNg/exec', // Update with your script URL
+            method: 'POST',
+            data: $('#contactform').serialize(), // Serialize the form data
+            success: function (response) {
+                // Show success message and reset the form
+                successMessage.style.display = 'block';
+                $('#contactform')[0].reset(); // Reset the form fields
+                
+                loading.style.display = 'none';
+                btn.style.display = 'block';
+            },
+            error: function (err) {
+                // Handle error
+                loading.style.display = 'none';
+                btn.style.display = 'block';
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    });
+});
+
+	  </script>
 </body>
 
 </html>
